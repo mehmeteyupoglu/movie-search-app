@@ -1,21 +1,25 @@
 <article class="rental">
   <Movie::Image
-src="https://tr.web.img2.acsta.net/pictures/19/08/25/11/06/3898399.jpg"
-alt="A picture of El Camino: A Breaking Bad Movie"
+    src="{{@model.poster_path}}"
+    alt="A picture of {{@model.title}}"
 />
   <div class="details">
-    <h3>El Camino: A Breaking Bad Movie</h3>
+    <h3>
+      <LinkTo @route="movie" @model={{@movie}}>
+        {{@movie.title}}
+      </LinkTo>
+    </h3>
     <div class="detail owner">
-      <span>Original Title:</span> El Camino: A Breaking Bad Movie
+      <span>Original Title:</span> {{@movie.original_title}}
     </div>
     <div class="detail type">
-      <span>Popularity:</span> 36.21
+      <span>Popularity:</span> {{@movie.popularity}}
     </div>
     <div class="detail location">
-      <span>Release Date:</span> 2019-10-11
+      <span>Release Date:</span> {{@movie.release_date}}
     </div>
     <div class="detail bedrooms">
-      <span>Number of Votes:</span> 2550
+      <span>Number of Votes:</span> {{@movie.vote_count}}
     </div>
   </div>
 </article>

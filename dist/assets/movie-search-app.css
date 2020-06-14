@@ -50,8 +50,8 @@ p {
 .button {
   padding: 10px 30px 10px;
   text-decoration: none;
-  color: #fff;
-  background: #016aba;
+  color: #01d772;
+  background: #091d25;
   border-radius: 5px;
   border: none;
   font-size: 20px;
@@ -81,13 +81,13 @@ p {
   height: 4em;
   background-color: #3d54d3;
   background-color: #05526A;
-  background-color: #6752c5;
+  background-color: #091d25;
 }
 
 .menu h1 {
   position: relative;
   padding: 5px 0 0 8px;
-  color: #f9f9f9;
+  color: #01d772; 
   font-size: 1.8em;
   font-style: italic;
 }

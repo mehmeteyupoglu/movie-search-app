@@ -93,29 +93,33 @@
   /*
     <article class="rental">
     <Movie::Image
-  src="https://tr.web.img2.acsta.net/pictures/19/08/25/11/06/3898399.jpg"
-  alt="A picture of El Camino: A Breaking Bad Movie"
+      src="{{@model.poster_path}}"
+      alt="A picture of {{@model.title}}"
   />
     <div class="details">
-      <h3>El Camino: A Breaking Bad Movie</h3>
+      <h3>
+        <LinkTo @route="movie" @model={{@movie}}>
+          {{@movie.title}}
+        </LinkTo>
+      </h3>
       <div class="detail owner">
-        <span>Original Title:</span> El Camino: A Breaking Bad Movie
+        <span>Original Title:</span> {{@movie.original_title}}
       </div>
       <div class="detail type">
-        <span>Popularity:</span> 36.21
+        <span>Popularity:</span> {{@movie.popularity}}
       </div>
       <div class="detail location">
-        <span>Release Date:</span> 2019-10-11
+        <span>Release Date:</span> {{@movie.release_date}}
       </div>
       <div class="detail bedrooms">
-        <span>Number of Votes:</span> 2550
+        <span>Number of Votes:</span> {{@movie.vote_count}}
       </div>
     </div>
   </article>
   */
   {
-    id: "7VL93GyA",
-    block: "{\"symbols\":[],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[8,\"movie/image\",[[24,\"src\",\"https://tr.web.img2.acsta.net/pictures/19/08/25/11/06/3898399.jpg\"],[24,\"alt\",\"A picture of El Camino: A Breaking Bad Movie\"]],[[],[]],null],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[2,\"El Camino: A Breaking Bad Movie\"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" El Camino: A Breaking Bad Movie\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" 36.21\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" 2019-10-11\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" 2550\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    id: "AFWacpQ7",
+    block: "{\"symbols\":[\"@model\",\"@movie\"],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[8,\"movie/image\",[[16,\"src\",[31,[[32,1,[\"poster_path\"]]]]],[16,\"alt\",[31,[\"A picture of \",[32,1,[\"title\"]]]]]],[[],[]],null],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[2,\"\\n      \"],[8,\"link-to\",[],[[\"@route\",\"@model\"],[\"movie\",[32,2]]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[1,[32,2,[\"title\"]]],[2,\"\\n      \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" \"],[1,[32,2,[\"original_title\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" \"],[1,[32,2,[\"popularity\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" \"],[1,[32,2,[\"release_date\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" \"],[1,[32,2,[\"vote_count\"]]],[2,\"\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     meta: {
       moduleName: "movie-search-app/components/movie.hbs"
     }
@@ -438,6 +442,67 @@
   };
   _exports.default = _default;
 });
+;define("movie-search-app/models/rental", ["exports", "@ember-data/model"], function (_exports, _model) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _temp;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  let RentalModel = (_class = (_temp = class RentalModel extends _model.default {
+    constructor(...args) {
+      super(...args);
+
+      _initializerDefineProperty(this, "title", _descriptor, this);
+
+      _initializerDefineProperty(this, "original_title", _descriptor2, this);
+
+      _initializerDefineProperty(this, "date", _descriptor3, this);
+
+      _initializerDefineProperty(this, "popularity", _descriptor4, this);
+
+      _initializerDefineProperty(this, "votes", _descriptor5, this);
+    }
+
+  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "title", [_model.attr], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "original_title", [_model.attr], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "date", [_model.attr], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "popularity", [_model.attr], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "votes", [_model.attr], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  })), _class);
+  _exports.default = RentalModel;
+});
 ;define("movie-search-app/router", ["exports", "movie-search-app/config/environment"], function (_exports, _environment) {
   "use strict";
 
@@ -462,7 +527,42 @@
   _exports.default = Router;
   Router.map(function () {
     this.route("popular-movies");
+    this.route('movie', {
+      path: '/movie/:movie_id'
+    });
   });
+});
+;define("movie-search-app/routes/index", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  class IndexRoute extends Ember.Route {
+    async model() {
+      return {
+        "popularity": 73.223,
+        "vote_count": 423,
+        "video": false,
+        "poster_path": "/kNDFTt8O6g7LhIFo1mwlezTTXme.jpg",
+        "id": 652483,
+        "adult": false,
+        "backdrop_path": "/9OaIWmWI7Ph3jqj235zQIrh5yVd.jpg",
+        "original_language": "pt",
+        "original_title": "Modo Avião",
+        "genre_ids": [35, 10749],
+        "title": "Airplane Mode",
+        "vote_average": 6.4,
+        "overview": "When Ana, an influencer, crashes her car while talking on the phone, she's shipped to her grumpy grandfather's farm -- and forced into a digital detox.",
+        "release_date": "2020-01-23"
+      };
+    }
+
+  }
+
+  _exports.default = IndexRoute;
 });
 ;define("movie-search-app/serializers/-default", ["exports", "@ember-data/serializer/json"], function (_exports, _json) {
   "use strict";
@@ -543,8 +643,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "ooUMl7TR",
-    "block": "{\"symbols\":[],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\\n  \"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[],[]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[],[]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[],[]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "9gBV4luq",
+    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\\n\\n  \"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
     }
@@ -645,7 +745,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+a4469c20"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+4d74348e"});
           }
         
 //# sourceMappingURL=movie-search-app.map
