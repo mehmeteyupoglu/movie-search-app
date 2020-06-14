@@ -92,6 +92,10 @@
   const __COLOCATED_TEMPLATE__ = Ember.HTMLBars.template(
   /*
     <article class="rental">
+    <Movie::Image
+  src="https://tr.web.img2.acsta.net/pictures/19/08/25/11/06/3898399.jpg"
+  alt="A picture of El Camino: A Breaking Bad Movie"
+  />
     <div class="details">
       <h3>El Camino: A Breaking Bad Movie</h3>
       <div class="detail owner">
@@ -110,10 +114,36 @@
   </article>
   */
   {
-    id: "5euZ2GLx",
-    block: "{\"symbols\":[],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[2,\"El Camino: A Breaking Bad Movie\"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" El Camino: A Breaking Bad Movie\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" 36.21\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" 2019-10-11\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" 2550\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    id: "7VL93GyA",
+    block: "{\"symbols\":[],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[8,\"movie/image\",[[24,\"src\",\"https://tr.web.img2.acsta.net/pictures/19/08/25/11/06/3898399.jpg\"],[24,\"alt\",\"A picture of El Camino: A Breaking Bad Movie\"]],[[],[]],null],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[2,\"El Camino: A Breaking Bad Movie\"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" El Camino: A Breaking Bad Movie\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" 36.21\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" 2019-10-11\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" 2550\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     meta: {
       moduleName: "movie-search-app/components/movie.hbs"
+    }
+  });
+
+  var _default = Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, Ember._templateOnlyComponent());
+
+  _exports.default = _default;
+});
+;define("movie-search-app/components/movie/image", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  const __COLOCATED_TEMPLATE__ = Ember.HTMLBars.template(
+  /*
+    <div class="image">
+      <img ...attributes>
+  </div>
+  */
+  {
+    id: "IU6TRV3u",
+    block: "{\"symbols\":[\"&attrs\"],\"statements\":[[10,\"div\"],[14,0,\"image\"],[12],[2,\"\\n    \"],[11,\"img\"],[17,1],[12],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    meta: {
+      moduleName: "movie-search-app/components/movie/image.hbs"
     }
   });
 
@@ -585,7 +615,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+7c4b57a9"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+f90c1c67"});
           }
         
 //# sourceMappingURL=movie-search-app.map
