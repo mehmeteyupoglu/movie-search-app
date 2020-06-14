@@ -8,6 +8,8 @@ define("movie-search-app/tests/acceptance/movie-search-app-test", ["qunit", "@em
     (0, _qunit.test)('visiting /', async function (assert) {
       await (0, _testHelpers.visit)('/');
       assert.equal((0, _testHelpers.currentURL)(), '/');
+      assert.dom('nav').exists();
+      assert.dom('h1').hasText('Movie Search App');
       assert.dom('h2').hasText('Welcome to Movie Search App!');
       assert.dom('.jumbo a.button').hasText('Popular Movies');
       await (0, _testHelpers.click)('.jumbo a.button');
@@ -16,9 +18,21 @@ define("movie-search-app/tests/acceptance/movie-search-app-test", ["qunit", "@em
     (0, _qunit.test)('visiting /popular-movies', async function (assert) {
       await (0, _testHelpers.visit)('/popular-movies');
       assert.equal((0, _testHelpers.currentURL)(), '/popular-movies');
+      assert.dom('nav').exists();
+      assert.dom('h1').hasText('Movie Search App');
       assert.dom('h2').hasText('Popular Movies');
       assert.dom('.jumbo a.button').hasText('Homepage');
       await (0, _testHelpers.click)('.jumbo a.button');
+      assert.equal((0, _testHelpers.currentURL)(), '/');
+    });
+    (0, _qunit.test)('navigating using the nav-bar', async function (assert) {
+      await (0, _testHelpers.visit)('/');
+      assert.dom('nav').exists();
+      assert.dom('nav a.menu-index').hasText('Movie Search App');
+      assert.dom('nav a.menu-about').hasText('Popular Movies');
+      await (0, _testHelpers.click)('nav a.menu-about');
+      assert.equal((0, _testHelpers.currentURL)(), '/popular-movies');
+      await (0, _testHelpers.click)('nav a.menu-index');
       assert.equal((0, _testHelpers.currentURL)(), '/');
     });
   });
