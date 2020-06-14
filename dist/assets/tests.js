@@ -71,6 +71,7 @@ define("movie-search-app/tests/integration/components/movie-test", ["qunit", "em
       assert.dom('article .detail.type').includesText('36.21');
       assert.dom('article .detail.location').includesText('2019-10-11');
       assert.dom('article .detail.bedrooms').includesText('2550');
+      assert.dom('article .image').exists();
     });
   });
 });
@@ -79,34 +80,24 @@ define("movie-search-app/tests/integration/components/movie/image-test", ["qunit
 
   (0, _qunit.module)('Integration | Component | movie/image', function (hooks) {
     (0, _emberQunit.setupRenderingTest)(hooks);
-    (0, _qunit.test)('it renders', async function (assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
-      await (0, _testHelpers.render)(Ember.HTMLBars.template(
-      /*
-        <Movie::Image />
-      */
-      {
-        id: "PBJD853J",
-        block: "{\"symbols\":[],\"statements\":[[8,\"movie/image\",[],[[],[]],null]],\"hasEval\":false,\"upvars\":[]}",
-        meta: {}
-      }));
-      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
-
+    (0, _qunit.test)('it renders the given image', async function (assert) {
       await (0, _testHelpers.render)(Ember.HTMLBars.template(
       /*
         
-            <Movie::Image>
-              template block text
-            </Movie::Image>
+          <Rental::Image
+          src="/assets/images/tmbd.png"
+          alt="TMDB"
+          />
           
       */
       {
-        id: "0P8f9n/x",
-        block: "{\"symbols\":[],\"statements\":[[2,\"\\n      \"],[8,\"movie/image\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        template block text\\n      \"]],\"parameters\":[]}]]],[2,\"\\n    \"]],\"hasEval\":false,\"upvars\":[]}",
+        id: "0ZwZbOSR",
+        block: "{\"symbols\":[],\"statements\":[[2,\"\\n    \"],[8,\"rental/image\",[[24,\"src\",\"/assets/images/tmbd.png\"],[24,\"alt\",\"TMDB\"]],[[],[]],null],[2,\"\\n    \"]],\"hasEval\":false,\"upvars\":[]}",
         meta: {}
       }));
-      assert.equal(this.element.textContent.trim(), 'template block text');
+      assert.dom('.image').exists();
+      assert.dom('.image img').hasAttribute('src', '/assets/images/tmbd.png');
+      assert.dom('.image img').hasAttribute('alt', 'TMDB');
     });
   });
 });

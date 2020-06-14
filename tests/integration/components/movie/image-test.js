@@ -6,21 +6,16 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | movie/image', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Movie::Image />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
+  test('it renders the given image', async function(assert) {
     await render(hbs`
-      <Movie::Image>
-        template block text
-      </Movie::Image>
+    <Rental::Image
+    src="/assets/images/tmbd.png"
+    alt="TMDB"
+    />
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+  assert.dom('.image').exists();
+  assert.dom('.image img').hasAttribute('src', '/assets/images/tmbd.png');
+  assert.dom('.image img').hasAttribute('alt', 'TMDB');
   });
 });

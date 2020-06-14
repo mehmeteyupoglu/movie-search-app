@@ -14,5 +14,6 @@ module('Integration | Component | movie', function(hooks) {
     assert.dom('article .detail.type').includesText('36.21');
     assert.dom('article .detail.location').includesText('2019-10-11');
     assert.dom('article .detail.bedrooms').includesText('2550');
+    assert.dom('article .image').exists();
   });
 });
