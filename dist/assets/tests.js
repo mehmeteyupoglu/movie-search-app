@@ -23,6 +23,28 @@ define("movie-search-app/tests/acceptance/movie-search-app-test", ["qunit", "@em
     });
   });
 });
+define("movie-search-app/tests/integration/components/header-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Component | header', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders the content inside a jumbo header with a tomster', async function (assert) {
+      await (0, _testHelpers.render)(Ember.HTMLBars.template(
+      /*
+        <Header>Hello World</Header>
+      */
+      {
+        id: "f/IQ8VIO",
+        block: "{\"symbols\":[],\"statements\":[[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Hello World\"]],\"parameters\":[]}]]]],\"hasEval\":false,\"upvars\":[]}",
+        meta: {}
+      }));
+      assert.dom('.jumbo').exists();
+      assert.dom('.jumbo').hasText('Hello World');
+      assert.dom('.jumbo .tomster').exists();
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define("movie-search-app/tests/test-helper", ["movie-search-app/app", "movie-search-app/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
   "use strict";
 
