@@ -54,6 +54,33 @@
     }
   });
 });
+;define("movie-search-app/components/header", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  const __COLOCATED_TEMPLATE__ = Ember.HTMLBars.template(
+  /*
+    <div class="jumbo">
+    <div class="right tomster"></div>
+    {{yield}}
+  </div>
+  */
+  {
+    id: "imx4lzFc",
+    block: "{\"symbols\":[\"&default\"],\"statements\":[[10,\"div\"],[14,0,\"jumbo\"],[12],[2,\"\\n  \"],[10,\"div\"],[14,0,\"right tomster\"],[12],[13],[2,\"\\n  \"],[18,1,null],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    meta: {
+      moduleName: "movie-search-app/components/header.hbs"
+    }
+  });
+
+  var _default = Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, Ember._templateOnlyComponent());
+
+  _exports.default = _default;
+});
 ;define("movie-search-app/components/welcome-page", ["exports", "ember-welcome-page/components/welcome-page"], function (_exports, _welcomePage) {
   "use strict";
 
@@ -365,8 +392,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "8Qdsxuo/",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"jumbo\"],[12],[2,\"\\n  \"],[10,\"div\"],[14,0,\"right tomster\"],[12],[13],[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Welcome to Super Rentals!\"],[13],[2,\"\\n  \"],[10,\"p\"],[12],[2,\"We hope you find exactly what you're looking for in a place to stay.\"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "Px+l12gb",
+    "block": "{\"symbols\":[],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
     }
@@ -383,8 +410,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "NLTmZmnd",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"jumbo\"],[12],[2,\"\\n  \"],[10,\"div\"],[14,0,\"right tomster\"],[12],[13],[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n  \"],[10,\"p\"],[12],[2,\"\\n    Search and find out the popular movies of all time!\\n  \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "29JZMKGF",
+    "block": "{\"symbols\":[],\"statements\":[[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all time!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/popular-movies.hbs"
     }
@@ -467,7 +494,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+1c0ecbc7"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+7653c683"});
           }
         
 //# sourceMappingURL=movie-search-app.map

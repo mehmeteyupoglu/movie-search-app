@@ -1,5 +1,28 @@
 'use strict';
 
+define("movie-search-app/tests/acceptance/movie-search-app-test", ["qunit", "@ember/test-helpers", "ember-qunit"], function (_qunit, _testHelpers, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Acceptance | movie search app', function (hooks) {
+    (0, _emberQunit.setupApplicationTest)(hooks);
+    (0, _qunit.test)('visiting /', async function (assert) {
+      await (0, _testHelpers.visit)('/');
+      assert.equal((0, _testHelpers.currentURL)(), '/');
+      assert.dom('h2').hasText('Welcome to Movie Search App!');
+      assert.dom('.jumbo a.button').hasText('Popular Movies');
+      await (0, _testHelpers.click)('.jumbo a.button');
+      assert.equal((0, _testHelpers.currentURL)(), '/popular-movies');
+    });
+    (0, _qunit.test)('visiting /popular-movies', async function (assert) {
+      await (0, _testHelpers.visit)('/popular-movies');
+      assert.equal((0, _testHelpers.currentURL)(), '/popular-movies');
+      assert.dom('h2').hasText('Popular Movies');
+      assert.dom('.jumbo a.button').hasText('Homepage');
+      await (0, _testHelpers.click)('.jumbo a.button');
+      assert.equal((0, _testHelpers.currentURL)(), '/');
+    });
+  });
+});
 define("movie-search-app/tests/test-helper", ["movie-search-app/app", "movie-search-app/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
   "use strict";
 
