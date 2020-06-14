@@ -64,34 +64,13 @@ define("movie-search-app/tests/integration/components/movie-test", ["qunit", "em
 
   (0, _qunit.module)('Integration | Component | movie', function (hooks) {
     (0, _emberQunit.setupRenderingTest)(hooks);
-    (0, _qunit.test)('it renders', async function (assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
-      await (0, _testHelpers.render)(Ember.HTMLBars.template(
-      /*
-        <Movie />
-      */
-      {
-        id: "hcCUTFP/",
-        block: "{\"symbols\":[],\"statements\":[[8,\"movie\",[],[[],[]],null]],\"hasEval\":false,\"upvars\":[]}",
-        meta: {}
-      }));
-      assert.equal(this.element.textContent.trim(), ''); // Template block usage:
-
-      await (0, _testHelpers.render)(Ember.HTMLBars.template(
-      /*
-        
-            <Movie>
-              template block text
-            </Movie>
-          
-      */
-      {
-        id: "HxqM5I4i",
-        block: "{\"symbols\":[],\"statements\":[[2,\"\\n      \"],[8,\"movie\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        template block text\\n      \"]],\"parameters\":[]}]]],[2,\"\\n    \"]],\"hasEval\":false,\"upvars\":[]}",
-        meta: {}
-      }));
-      assert.equal(this.element.textContent.trim(), 'template block text');
+    (0, _qunit.test)('it renders information about a rental property', async function (assert) {
+      assert.dom('article').hasClass('rental');
+      assert.dom('article h3').hasText('El Camino: A Breaking Bad Movie');
+      assert.dom('article .detail.owner').includesText('El Camino: A Breaking Bad Movie');
+      assert.dom('article .detail.type').includesText('36.21');
+      assert.dom('article .detail.location').includesText('2019-10-11');
+      assert.dom('article .detail.bedrooms').includesText('2550');
     });
   });
 });

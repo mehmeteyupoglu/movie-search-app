@@ -93,7 +93,7 @@
   /*
     <article class="rental">
     <div class="details">
-      <h3></h3>
+      <h3>El Camino: A Breaking Bad Movie</h3>
       <div class="detail owner">
         <span>Original Title:</span> El Camino: A Breaking Bad Movie
       </div>
@@ -110,8 +110,8 @@
   </article>
   */
   {
-    id: "NIJLr3/S",
-    block: "{\"symbols\":[],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" El Camino: A Breaking Bad Movie\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" 36.21\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" 2019-10-11\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" 2550\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    id: "5euZ2GLx",
+    block: "{\"symbols\":[],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[2,\"El Camino: A Breaking Bad Movie\"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" El Camino: A Breaking Bad Movie\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" 36.21\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" 2019-10-11\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" 2550\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     meta: {
       moduleName: "movie-search-app/components/movie.hbs"
     }
@@ -483,8 +483,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "Px+l12gb",
-    "block": "{\"symbols\":[],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "ooUMl7TR",
+    "block": "{\"symbols\":[],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\\n  \"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[],[]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[],[]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[],[]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
     }
@@ -585,7 +585,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+f59cf65a"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+7c4b57a9"});
           }
         
 //# sourceMappingURL=movie-search-app.map
