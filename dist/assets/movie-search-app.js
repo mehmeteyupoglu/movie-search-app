@@ -15,6 +15,31 @@
     }
   });
 });
+;define("movie-search-app/adapters/movie", ["exports", "@ember-data/adapter/json-api"], function (_exports, _jsonApi) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  class MovieAdapter extends _jsonApi.default {
+    constructor(...args) {
+      super(...args);
+
+      _defineProperty(this, "host", "https://api.themoviedb.org/3");
+    }
+
+    pathForType() {
+      return "movie/popular?api_key=f21d4318a697d4af5b29235e1de3ddb1&language=en-US&page=2";
+    }
+
+  }
+
+  _exports.default = MovieAdapter;
+});
 ;define("movie-search-app/app", ["exports", "ember-resolver", "ember-load-initializers", "movie-search-app/config/environment"], function (_exports, _emberResolver, _emberLoadInitializers, _environment) {
   "use strict";
 
@@ -442,7 +467,7 @@
   };
   _exports.default = _default;
 });
-;define("movie-search-app/models/rental", ["exports", "@ember-data/model"], function (_exports, _model) {
+;define("movie-search-app/models/movie", ["exports", "@ember-data/model"], function (_exports, _model) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -460,7 +485,7 @@
 
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
-  let RentalModel = (_class = (_temp = class RentalModel extends _model.default {
+  let MovieModel = (_class = (_temp = class MovieModel extends _model.default {
     constructor(...args) {
       super(...args);
 
@@ -475,33 +500,33 @@
       _initializerDefineProperty(this, "votes", _descriptor5, this);
     }
 
-  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "title", [_model.attr], {
+  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "title", [attr], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: null
-  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "original_title", [_model.attr], {
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "original_title", [attr], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: null
-  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "date", [_model.attr], {
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "date", [attr], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: null
-  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "popularity", [_model.attr], {
+  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "popularity", [attr], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: null
-  }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "votes", [_model.attr], {
+  }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "votes", [attr], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: null
   })), _class);
-  _exports.default = RentalModel;
+  _exports.default = MovieModel;
 });
 ;define("movie-search-app/router", ["exports", "movie-search-app/config/environment"], function (_exports, _environment) {
   "use strict";
@@ -530,6 +555,7 @@
     this.route('movie', {
       path: '/movie/:movie_id'
     });
+    this.route('movies');
   });
 });
 ;define("movie-search-app/routes/index", ["exports"], function (_exports) {
@@ -563,6 +589,23 @@
   }
 
   _exports.default = IndexRoute;
+});
+;define("movie-search-app/routes/movies", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  class MoviesRoute extends Ember.Route {
+    model() {
+      return this.store.findAll("movie");
+    }
+
+  }
+
+  _exports.default = MoviesRoute;
 });
 ;define("movie-search-app/serializers/-default", ["exports", "@ember-data/serializer/json"], function (_exports, _json) {
   "use strict";
@@ -647,6 +690,24 @@
     "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\\n\\n  \"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("movie-search-app/templates/movies", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "hIXDuQFO",
+    "block": "{\"symbols\":[],\"statements\":[[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
+    "meta": {
+      "moduleName": "movie-search-app/templates/movies.hbs"
     }
   });
 
@@ -745,7 +806,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+4d74348e"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+0fec9ac9"});
           }
         
 //# sourceMappingURL=movie-search-app.map

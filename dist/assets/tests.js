@@ -132,6 +132,42 @@ define("movie-search-app/tests/test-helper", ["movie-search-app/app", "movie-sea
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _emberQunit.start)();
 });
+define("movie-search-app/tests/unit/adapters/movie-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Adapter | movie', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let adapter = this.owner.lookup('adapter:movie');
+      assert.ok(adapter);
+    });
+  });
+});
+define("movie-search-app/tests/unit/models/movie-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Model | movie', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = store.createRecord('movie', {});
+      assert.ok(model);
+    });
+  });
+});
+define("movie-search-app/tests/unit/routes/movies-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Route | movies', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:movies');
+      assert.ok(route);
+    });
+  });
+});
 define('movie-search-app/config/environment', [], function() {
   var prefix = 'movie-search-app';
 try {
