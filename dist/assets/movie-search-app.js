@@ -145,21 +145,14 @@
 
   const __COLOCATED_TEMPLATE__ = Ember.HTMLBars.template(
   /*
-    {{#if this.isLarge}}
-    <button type="button" class="image large" {{on "click" this.toggleSize}}>
-      <img ...attributes>
-      <small>View Smaller</small>
-    </button>
-  {{else}}
-    <button type="button" class="image" {{on "click" this.toggleSize}}>
-      <img ...attributes>
-      <small>View Larger</small>
-    </button>
-  {{/if}}
+    <button type="button" class="image {{if this.isLarge "large"}}" {{on "click" this.toggleSize}}>
+    <img ...attributes>
+    <small>View {{if this.isLarge "Smaller" "Larger"}}</small>
+  </button>
   */
   {
-    id: "8dvePAh2",
-    block: "{\"symbols\":[\"&attrs\"],\"statements\":[[6,[37,1],[[32,0,[\"isLarge\"]]],null,[[\"default\",\"else\"],[{\"statements\":[[2,\"  \"],[11,\"button\"],[24,0,\"image large\"],[24,4,\"button\"],[4,[38,0],[\"click\",[32,0,[\"toggleSize\"]]],null],[12],[2,\"\\n    \"],[11,\"img\"],[17,1],[12],[13],[2,\"\\n    \"],[10,\"small\"],[12],[2,\"View Smaller\"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"]],\"parameters\":[]},{\"statements\":[[2,\"  \"],[11,\"button\"],[24,0,\"image\"],[24,4,\"button\"],[4,[38,0],[\"click\",[32,0,[\"toggleSize\"]]],null],[12],[2,\"\\n    \"],[11,\"img\"],[17,1],[12],[13],[2,\"\\n    \"],[10,\"small\"],[12],[2,\"View Larger\"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"]],\"parameters\":[]}]]]],\"hasEval\":false,\"upvars\":[\"on\",\"if\"]}",
+    id: "F8XUsSp9",
+    block: "{\"symbols\":[\"&attrs\"],\"statements\":[[11,\"button\"],[16,0,[31,[\"image \",[30,[36,0],[[32,0,[\"isLarge\"]],\"large\"],null]]]],[24,4,\"button\"],[4,[38,1],[\"click\",[32,0,[\"toggleSize\"]]],null],[12],[2,\"\\n  \"],[11,\"img\"],[17,1],[12],[13],[2,\"\\n  \"],[10,\"small\"],[12],[2,\"View \"],[1,[30,[36,0],[[32,0,[\"isLarge\"]],\"Smaller\",\"Larger\"],null]],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[\"if\",\"on\"]}",
     meta: {
       moduleName: "movie-search-app/components/movie/image.hbs"
     }
@@ -652,7 +645,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+aac225cc"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+a4469c20"});
           }
         
 //# sourceMappingURL=movie-search-app.map

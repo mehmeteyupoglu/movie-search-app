@@ -99,6 +99,31 @@ define("movie-search-app/tests/integration/components/movie/image-test", ["qunit
       assert.dom('.image img').hasAttribute('src', '/assets/images/tmbd.png');
       assert.dom('.image img').hasAttribute('alt', 'TMDB');
     });
+    (0, _qunit.test)('clicking on the component toggles its size', async function (assert) {
+      await (0, _testHelpers.render)(Ember.HTMLBars.template(
+      /*
+        
+            <Rental::Image
+              src="/assets/tmbd.png"
+              alt="TMDB"
+            />
+          
+      */
+      {
+        id: "/1I4DI3O",
+        block: "{\"symbols\":[],\"statements\":[[2,\"\\n      \"],[8,\"rental/image\",[[24,\"src\",\"/assets/tmbd.png\"],[24,\"alt\",\"TMDB\"]],[[],[]],null],[2,\"\\n    \"]],\"hasEval\":false,\"upvars\":[]}",
+        meta: {}
+      }));
+      assert.dom('button.image').exists();
+      assert.dom('.image').doesNotHaveClass('large');
+      assert.dom('.image small').hasText('View Larger');
+      await (0, _testHelpers.click)('button.image');
+      assert.dom('.image').hasClass('large');
+      assert.dom('.image small').hasText('View Smaller');
+      await (0, _testHelpers.click)('button.image');
+      assert.dom('.image').doesNotHaveClass('large');
+      assert.dom('.image small').hasText('View Larger');
+    });
   });
 });
 define("movie-search-app/tests/test-helper", ["movie-search-app/app", "movie-search-app/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
