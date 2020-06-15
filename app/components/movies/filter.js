@@ -2,12 +2,12 @@ import Component from '@glimmer/component';
 
 export default class RentalsFilterComponent extends Component {
   get results() {
-    let { search, query } = this.args;
+    let { movies, query } = this.args;
 
     if (query) {
-      search = search.filter(search => search.title.includes(query));
+      movies = movies.filter(movie => movie.title.includes(query));
     }
 
-    return search;
+    return movies;
   }
 }

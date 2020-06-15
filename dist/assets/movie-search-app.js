@@ -235,15 +235,15 @@
   class RentalsFilterComponent extends _component.default {
     get results() {
       let {
-        search,
+        movies,
         query
       } = this.args;
 
       if (query) {
-        search = search.filter(search => search.title.includes(query));
+        movies = movies.filter(movie => movie.title.includes(query));
       }
 
-      return search;
+      return movies;
     }
 
   }
@@ -320,15 +320,19 @@
     </ul>
   </div>
   
-  {{!-- <Rentals::Filter @search={{@search}} @query={{this.query}} as |results|>
+  
+  
+      {{!-- <Movies::Filter @movies={{@movies}} @query={{this.query}} as |results|>
         {{#each results as |movie|}}
           <li><Movie @movie={{search}} /></li>
         {{/each}}
-  </Rentals::Filter> --}}
+      </Movies::Filter> --}}
+  
+      
   */
   {
-    id: "TybKMzxZ",
-    block: "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"label\"],[12],[2,\"\\n    \"],[10,\"span\"],[12],[2,\"Which movie are you looking for ?\"],[13],[2,\"\\n    \"],[8,\"input\",[[24,0,\"light\"]],[[\"@value\"],[[32,0,[\"query\"]]]],null],[2,\"\\n  \"],[13],[2,\"\\n  \"],[10,\"h1\"],[12],[2,\"\\n    \"],[1,[32,0,[\"query\"]]],[2,\"\\n  \"],[13],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\"]],\"hasEval\":false,\"upvars\":[\"model\"]}",
+    id: "9ppkpD59",
+    block: "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"label\"],[12],[2,\"\\n    \"],[10,\"span\"],[12],[2,\"Which movie are you looking for ?\"],[13],[2,\"\\n    \"],[8,\"input\",[[24,0,\"light\"]],[[\"@value\"],[[32,0,[\"query\"]]]],null],[2,\"\\n  \"],[13],[2,\"\\n  \"],[10,\"h1\"],[12],[2,\"\\n    \"],[1,[32,0,[\"query\"]]],[2,\"\\n  \"],[13],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\\n\\n\"],[2,\"\\n    \"]],\"hasEval\":false,\"upvars\":[\"model\"]}",
     meta: {
       moduleName: "movie-search-app/components/search.hbs"
     }
@@ -678,22 +682,11 @@
 
   class IndexRoute extends Ember.Route {
     async model() {
-      return {
-        "popularity": 73.223,
-        "vote_count": 423,
-        "video": false,
-        "poster_path": "/kNDFTt8O6g7LhIFo1mwlezTTXme.jpg",
-        "id": 652483,
-        "adult": false,
-        "backdrop_path": "/9OaIWmWI7Ph3jqj235zQIrh5yVd.jpg",
-        "original_language": "pt",
-        "original_title": "Modo Avião",
-        "genre_ids": [35, 10749],
-        "title": "Airplane Mode",
-        "vote_average": 6.4,
-        "overview": "When Ana, an influencer, crashes her car while talking on the phone, she's shipped to her grumpy grandfather's farm -- and forced into a digital detox.",
-        "release_date": "2020-01-23"
-      };
+      let response = await fetch('/api/movies.json');
+      let {
+        results
+      } = await response.json();
+      return results;
     }
 
   }
@@ -796,8 +789,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "YUPyvkZM",
-    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "XD6jlJD1",
+    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
     }
@@ -832,8 +825,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "6Z0IT6oZ",
-    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"\\n\"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all time!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]],[2,\"\\n\\n\"],[8,\"search\",[],[[\"@search\"],[[32,1]]],null]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "zwMA+VOo",
+    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"\\n\"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all time!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]],[2,\"\\n\\n\"],[8,\"search\",[],[[\"@movie\"],[[32,1]]],null]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "movie-search-app/templates/popular-movies.hbs"
     }
@@ -916,7 +909,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+16ca175d"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+f3549940"});
           }
         
 //# sourceMappingURL=movie-search-app.map
