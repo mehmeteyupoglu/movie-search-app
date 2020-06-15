@@ -156,32 +156,6 @@
 
   _exports.default = _default;
 });
-;define("movie-search-app/components/movie/filter", ["exports", "@glimmer/component"], function (_exports, _component) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  class RentalsFilterComponent extends _component.default {
-    get results() {
-      let {
-        search,
-        query
-      } = this.args;
-
-      if (query) {
-        search = search.filter(search => search.title.includes(query));
-      }
-
-      return search;
-    }
-
-  }
-
-  _exports.default = RentalsFilterComponent;
-});
 ;define("movie-search-app/components/movie/image", ["exports", "@glimmer/component"], function (_exports, _component) {
   "use strict";
 
@@ -238,7 +212,7 @@
 
   Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, MovieImageComponent);
 });
-;define("movie-search-app/components/movie/search", ["exports"], function (_exports) {
+;define("movie-search-app/components/movies/filter", ["exports", "@glimmer/component"], function (_exports, _component) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -251,16 +225,32 @@
     {{yield this.results}}
   */
   {
-    id: "FkT+pik1",
+    id: "JC+KFzOY",
     block: "{\"symbols\":[\"&default\"],\"statements\":[[18,1,[[32,0,[\"results\"]]]]],\"hasEval\":false,\"upvars\":[]}",
     meta: {
-      moduleName: "movie-search-app/components/movie/search.hbs"
+      moduleName: "movie-search-app/components/movies/filter.hbs"
     }
   });
 
-  var _default = Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, Ember._templateOnlyComponent());
+  class RentalsFilterComponent extends _component.default {
+    get results() {
+      let {
+        search,
+        query
+      } = this.args;
 
-  _exports.default = _default;
+      if (query) {
+        search = search.filter(search => search.title.includes(query));
+      }
+
+      return search;
+    }
+
+  }
+
+  _exports.default = RentalsFilterComponent;
+
+  Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, RentalsFilterComponent);
 });
 ;define("movie-search-app/components/nav-bar", ["exports"], function (_exports) {
   "use strict";
@@ -317,10 +307,12 @@
   /*
     <div class="rentals">
     <label>
-      <span>Where would you like to stay?</span>
+      <span>Which movie are you looking for ?</span>
       <Input @value={{this.query}} class="light" />
     </label>
-  
+    <h1>
+      {{this.query}}
+    </h1>
     <ul class="results">
       <li><Movie @movie={{model}}/></li>
       <li><Movie @movie={{model}}/></li>
@@ -328,15 +320,15 @@
     </ul>
   </div>
   
-  <Rentals::Filter @search={{@search}} @query={{this.query}} as |results|>
+  {{!-- <Rentals::Filter @search={{@search}} @query={{this.query}} as |results|>
         {{#each results as |movie|}}
           <li><Movie @movie={{search}} /></li>
         {{/each}}
-  </Rentals::Filter>
+  </Rentals::Filter> --}}
   */
   {
-    id: "OVrSa2Hu",
-    block: "{\"symbols\":[\"results\",\"movie\",\"@search\"],\"statements\":[[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"label\"],[12],[2,\"\\n    \"],[10,\"span\"],[12],[2,\"Where would you like to stay?\"],[13],[2,\"\\n    \"],[8,\"input\",[[24,0,\"light\"]],[[\"@value\"],[[32,0,[\"query\"]]]],null],[2,\"\\n  \"],[13],[2,\"\\n\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,1]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\"],[8,\"rentals/filter\",[],[[\"@search\",\"@query\"],[[32,3],[32,0,[\"query\"]]]],[[\"default\"],[{\"statements\":[[2,\"\\n\"],[6,[37,3],[[30,[36,2],[[30,[36,2],[[32,1]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"        \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n\"]],\"parameters\":[2]}]]]],\"parameters\":[1]}]]]],\"hasEval\":false,\"upvars\":[\"search\",\"model\",\"-track-array\",\"each\"]}",
+    id: "TybKMzxZ",
+    block: "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"label\"],[12],[2,\"\\n    \"],[10,\"span\"],[12],[2,\"Which movie are you looking for ?\"],[13],[2,\"\\n    \"],[8,\"input\",[[24,0,\"light\"]],[[\"@value\"],[[32,0,[\"query\"]]]],null],[2,\"\\n  \"],[13],[2,\"\\n  \"],[10,\"h1\"],[12],[2,\"\\n    \"],[1,[32,0,[\"query\"]]],[2,\"\\n  \"],[13],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[34,0]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\"]],\"hasEval\":false,\"upvars\":[\"model\"]}",
     meta: {
       moduleName: "movie-search-app/components/search.hbs"
     }
@@ -924,7 +916,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+ad1a8033"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+16ca175d"});
           }
         
 //# sourceMappingURL=movie-search-app.map
