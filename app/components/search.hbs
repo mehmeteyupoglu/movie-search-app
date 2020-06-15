@@ -1,0 +1,18 @@
+<div class="rentals">
+  <label>
+    <span>Where would you like to stay?</span>
+    <Input @value={{this.query}} class="light" />
+  </label>
+
+  <ul class="results">
+    <li><Movie @movie={{model}}/></li>
+    <li><Movie @movie={{model}}/></li>
+    <li><Movie @movie={{model}}/></li>
+  </ul>
+</div>
+
+<Rentals::Filter @search={{@search}} @query={{this.query}} as |results|>
+      {{#each results as |movie|}}
+        <li><Movie @movie={{search}} /></li>
+      {{/each}}
+</Rentals::Filter>
