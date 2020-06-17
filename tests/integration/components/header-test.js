@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | header', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the content inside a jumbo header with a tomster', async function(assert) {
+  test('it renders the content inside header with a TMBD', async function(assert) {
     await render(hbs`<Header>Hello World</Header>`);
 
     assert.dom('.jumbo').exists();

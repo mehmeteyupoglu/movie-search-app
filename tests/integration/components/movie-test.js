@@ -6,14 +6,38 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | movie', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders information about a rental property', async function(assert) {
+  test('it renders information about a movie', async function(assert) {
+
+    this.setProperties({
+      movie: {
+        "popularity": 301.678,
+          "vote_count": 3713,
+          "video": false,
+          "poster_path": "/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg",
+          "id": 419704,
+          "adult": false,
+          "backdrop_path": "/5BwqwxMEjeFtdknRV792Svo0K1v.jpg",
+          "original_language": "en",
+          "original_title": "Ad Astra",
+          "genre_ids": [
+            18,
+            878
+          ],
+          "title": "Ad Astra",
+          "vote_average": 6,
+          "overview": "The near future, a time when both hope and hardships drive humanity to look to the stars and beyond. While a mysterious phenomenon menaces to destroy life on planet Earth, astronaut Roy McBride undertakes a mission across the immensity of space and its many perils to uncover the truth about a lost expedition that decades before boldly faced emptiness and silence in search of the unknown.",
+          "release_date": "2019-09-17"
+      }
+    });
+
+    await render(hbs`<Movie @movie={{this.movie}} />`);
 
     assert.dom('article').hasClass('rental');
-    assert.dom('article h3').hasText('El Camino: A Breaking Bad Movie');
-    assert.dom('article .detail.owner').includesText('El Camino: A Breaking Bad Movie');
-    assert.dom('article .detail.type').includesText('36.21');
-    assert.dom('article .detail.location').includesText('2019-10-11');
-    assert.dom('article .detail.bedrooms').includesText('2550');
+    assert.dom('article h3').hasText('Ad Astra');
+    assert.dom('article .detail.owner').includesText('Ad Astra');
+    assert.dom('article .detail.type').includesText('301.678');
+    assert.dom('article .detail.location').includesText('2019-09-17');
+    assert.dom('article .detail.bedrooms').includesText('3713');
     assert.dom('article .image').exists();
   });
 });

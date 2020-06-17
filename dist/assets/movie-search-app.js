@@ -120,15 +120,11 @@
   /*
     <article class="rental">
     <Movie::Image
-      src="{{@model.poster_path}}"
+      src="https://image.tmdb.org/t/p/w500{{@movie.poster_path}}"
       alt="A picture of {{@model.title}}"
   />
     <div class="details">
-      <h3>
-        <LinkTo @route="movie" @model={{@movie}}>
-          {{@movie.title}}
-        </LinkTo>
-      </h3>
+      <h3>{{@movie.title}}</h3>
       <div class="detail owner">
         <span>Original Title:</span> {{@movie.original_title}}
       </div>
@@ -145,8 +141,8 @@
   </article>
   */
   {
-    id: "AFWacpQ7",
-    block: "{\"symbols\":[\"@model\",\"@movie\"],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[8,\"movie/image\",[[16,\"src\",[31,[[32,1,[\"poster_path\"]]]]],[16,\"alt\",[31,[\"A picture of \",[32,1,[\"title\"]]]]]],[[],[]],null],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[2,\"\\n      \"],[8,\"link-to\",[],[[\"@route\",\"@model\"],[\"movie\",[32,2]]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[1,[32,2,[\"title\"]]],[2,\"\\n      \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" \"],[1,[32,2,[\"original_title\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" \"],[1,[32,2,[\"popularity\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" \"],[1,[32,2,[\"release_date\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" \"],[1,[32,2,[\"vote_count\"]]],[2,\"\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    id: "IN2MpAuT",
+    block: "{\"symbols\":[\"@movie\",\"@model\"],\"statements\":[[10,\"article\"],[14,0,\"rental\"],[12],[2,\"\\n  \"],[8,\"movie/image\",[[16,\"src\",[31,[\"https://image.tmdb.org/t/p/w500\",[32,1,[\"poster_path\"]]]]],[16,\"alt\",[31,[\"A picture of \",[32,2,[\"title\"]]]]]],[[],[]],null],[2,\"\\n  \"],[10,\"div\"],[14,0,\"details\"],[12],[2,\"\\n    \"],[10,\"h3\"],[12],[1,[32,1,[\"title\"]]],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail owner\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Original Title:\"],[13],[2,\" \"],[1,[32,1,[\"original_title\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail type\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Popularity:\"],[13],[2,\" \"],[1,[32,1,[\"popularity\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail location\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Release Date:\"],[13],[2,\" \"],[1,[32,1,[\"release_date\"]]],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,0,\"detail bedrooms\"],[12],[2,\"\\n      \"],[10,\"span\"],[12],[2,\"Number of Votes:\"],[13],[2,\" \"],[1,[32,1,[\"vote_count\"]]],[2,\"\\n    \"],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     meta: {
       moduleName: "movie-search-app/components/movie.hbs"
     }
@@ -667,7 +663,7 @@
   Router.map(function () {
     this.route("popular-movies");
     this.route('movie', {
-      path: '/movie/:movie_id'
+      path: '/popular-movies/:movie_id'
     });
     this.route('movies');
   });
@@ -683,10 +679,8 @@
   class IndexRoute extends Ember.Route {
     async model() {
       let response = await fetch('/api/movies.json');
-      let {
-        results
-      } = await response.json();
-      return results;
+      let parsed = await response.json();
+      return parsed;
     }
 
   }
@@ -789,8 +783,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "XD6jlJD1",
-    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n    \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "g/vBP50Q",
+    "block": "{\"symbols\":[\"movie\",\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n\"],[6,[37,1],[[30,[36,0],[[30,[36,0],[[32,2,[\"data\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"      \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
     }
@@ -825,8 +819,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "zwMA+VOo",
-    "block": "{\"symbols\":[\"@model\"],\"statements\":[[2,\"\\n\"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all time!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]],[2,\"\\n\\n\"],[8,\"search\",[],[[\"@movie\"],[[32,1]]],null]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "/CU0tC15",
+    "block": "{\"symbols\":[\"movie\",\"@model\"],\"statements\":[[2,\"\\n\"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all time!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]],[2,\"\\n\"],[8,\"search\",[],[[\"@search\"],[[32,2]]],null],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n\"],[6,[37,1],[[30,[36,0],[[30,[36,0],[[32,2,[\"data\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"      \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\"]],\"hasEval\":false,\"upvars\":[\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "movie-search-app/templates/popular-movies.hbs"
     }
@@ -909,7 +903,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+f3549940"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+962478ec"});
           }
         
 //# sourceMappingURL=movie-search-app.map

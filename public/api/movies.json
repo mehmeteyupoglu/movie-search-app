@@ -1,8 +1,5 @@
 {
-    "page": 1,
-    "total_results": 10000,
-    "total_pages": 500,
-    "results": [
+    "data": [
       {
         "popularity": 301.678,
         "vote_count": 3713,

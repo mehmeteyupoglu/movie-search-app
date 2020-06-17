@@ -1,14 +1,10 @@
 <article class="rental">
   <Movie::Image
-    src="{{@model.poster_path}}"
+    src="https://image.tmdb.org/t/p/w500{{@movie.poster_path}}"
     alt="A picture of {{@model.title}}"
 />
   <div class="details">
-    <h3>
-      <LinkTo @route="movie" @model={{@movie}}>
-        {{@movie.title}}
-      </LinkTo>
-    </h3>
+    <h3>{{@movie.title}}</h3>
     <div class="detail owner">
       <span>Original Title:</span> {{@movie.original_title}}
     </div>
