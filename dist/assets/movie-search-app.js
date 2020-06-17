@@ -668,7 +668,7 @@
     this.route('movies');
   });
 });
-;define("movie-search-app/routes/index", ["exports"], function (_exports) {
+;define("movie-search-app/routes/index", ["exports", "fetch"], function (_exports, _fetch) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -678,12 +678,14 @@
 
   class IndexRoute extends Ember.Route {
     async model() {
-      let response = await fetch('/api/movies.json');
+      let response = await (0, _fetch.default)('https://api.themoviedb.org/3/movie/popular?api_key=f21d4318a697d4af5b29235e1de3ddb1&language=en-US&page=3');
       let parsed = await response.json();
       return parsed;
     }
 
-  }
+  } // https://api.themoviedb.org/3/movie/popular?api_key=f21d4318a697d4af5b29235e1de3ddb1&language=en-US&page=1
+  // let response = await fetch('/api/movies.json');
+
 
   _exports.default = IndexRoute;
 });
@@ -783,8 +785,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "g/vBP50Q",
-    "block": "{\"symbols\":[\"movie\",\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n\"],[6,[37,1],[[30,[36,0],[[30,[36,0],[[32,2,[\"data\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"      \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"-track-array\",\"each\"]}",
+    "id": "rShZWg54",
+    "block": "{\"symbols\":[\"movie\",\"@model\"],\"statements\":[[2,\"  \"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"h2\"],[12],[2,\"Welcome to Movie Search App!\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"We hope you find exactly the movie you are looking for.\"],[13],[2,\"\\n    \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"popular-movies\"]],[[\"default\"],[{\"statements\":[[2,\"Popular Movies\"]],\"parameters\":[]}]]],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n\"],[6,[37,1],[[30,[36,0],[[30,[36,0],[[32,2,[\"results\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"      \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "movie-search-app/templates/index.hbs"
     }
@@ -819,8 +821,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "/CU0tC15",
-    "block": "{\"symbols\":[\"movie\",\"@model\"],\"statements\":[[2,\"\\n\"],[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all time!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]],[2,\"\\n\"],[8,\"search\",[],[[\"@search\"],[[32,2]]],null],[2,\"\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n\"],[6,[37,1],[[30,[36,0],[[30,[36,0],[[32,2,[\"data\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"      \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\"]],\"hasEval\":false,\"upvars\":[\"-track-array\",\"each\"]}",
+    "id": "vYFXAnLk",
+    "block": "{\"symbols\":[\"movie\",\"@model\"],\"statements\":[[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[10,\"h2\"],[12],[2,\"Popular Movies\"],[13],[2,\"\\n    \"],[10,\"p\"],[12],[2,\"\\n      Search and find out the popular movies of all times!\\n    \"],[13],[2,\"\\n  \"],[8,\"link-to\",[[24,0,\"button\"]],[[\"@route\"],[\"index\"]],[[\"default\"],[{\"statements\":[[2,\"Homepage\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[]}]]],[2,\"\\n\"],[8,\"search\",[],[[\"@search\"],[[32,2]]],null],[2,\"\\n\\n\"],[10,\"div\"],[14,0,\"rentals\"],[12],[2,\"\\n  \"],[10,\"ul\"],[14,0,\"results\"],[12],[2,\"\\n\"],[6,[37,1],[[30,[36,0],[[30,[36,0],[[32,2,[\"data\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"      \"],[10,\"li\"],[12],[8,\"movie\",[],[[\"@movie\"],[[32,1]]],null],[13],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"  \"],[13],[2,\"\\n\"],[13],[2,\"\\n\\n\"]],\"hasEval\":false,\"upvars\":[\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "movie-search-app/templates/popular-movies.hbs"
     }
@@ -903,7 +905,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+962478ec"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+6fc5ef10"});
           }
         
 //# sourceMappingURL=movie-search-app.map

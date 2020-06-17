@@ -45,15 +45,15 @@ define("movie-search-app/tests/integration/components/header-test", ["qunit", "e
     (0, _qunit.test)('it renders the content inside header with a TMBD', async function (assert) {
       await (0, _testHelpers.render)(Ember.HTMLBars.template(
       /*
-        <Header>Hello World</Header>
+        <Header>{{yield}}</Header>
       */
       {
-        id: "f/IQ8VIO",
-        block: "{\"symbols\":[],\"statements\":[[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Hello World\"]],\"parameters\":[]}]]]],\"hasEval\":false,\"upvars\":[]}",
+        id: "5aX8475i",
+        block: "{\"symbols\":[\"&default\"],\"statements\":[[8,\"header\",[],[[],[]],[[\"default\"],[{\"statements\":[[18,1,null]],\"parameters\":[]}]]]],\"hasEval\":false,\"upvars\":[]}",
         meta: {}
       }));
       assert.dom('.jumbo').exists();
-      assert.dom('.jumbo').hasText('Hello World');
+      assert.dom('.jumbo').hasText('');
       assert.dom('.jumbo .tomster').exists();
       assert.equal(this.element.textContent.trim(), 'template block text');
     });

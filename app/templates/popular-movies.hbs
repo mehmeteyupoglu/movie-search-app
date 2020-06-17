@@ -1,12 +1,12 @@
-
 <Header>
   <h2>Popular Movies</h2>
     <p>
-      Search and find out the popular movies of all time!
+      Search and find out the popular movies of all times!
     </p>
   <LinkTo @route="index" class="button">Homepage</LinkTo>
 </Header>
 <Search @search={{@model}} />
+
 <div class="rentals">
   <ul class="results">
     {{#each @model.data as |movie|}}

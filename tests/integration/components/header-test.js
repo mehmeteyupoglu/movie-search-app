@@ -7,10 +7,10 @@ module('Integration | Component | header', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the content inside header with a TMBD', async function(assert) {
-    await render(hbs`<Header>Hello World</Header>`);
+    await render(hbs`<Header>{{yield}}</Header>`);
 
     assert.dom('.jumbo').exists();
-    assert.dom('.jumbo').hasText('Hello World');
+    assert.dom('.jumbo').hasText('');
     assert.dom('.jumbo .tomster').exists();
 
     assert.equal(this.element.textContent.trim(), 'template block text');

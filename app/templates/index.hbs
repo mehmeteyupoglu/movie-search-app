@@ -5,7 +5,7 @@
   </Header>
 <div class="rentals">
   <ul class="results">
-    {{#each @model.data as |movie|}}
+    {{#each @model.results as |movie|}}
       <li><Movie @movie={{movie}} /></li>
     {{/each}}
   </ul>
