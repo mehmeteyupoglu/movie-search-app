@@ -905,7 +905,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+6fc5ef10"});
+            require("movie-search-app/app")["default"].create({"name":"movie-search-app","version":"0.0.0+04ad58f4"});
           }
         
 //# sourceMappingURL=movie-search-app.map
