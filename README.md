@@ -2,10 +2,11 @@
 
 This README contains the details of the movie search app and its core features. 
 
-## About
+## About & Features
 
 * The Movie Search App retrieves data from (https://developers.themoviedb.org/3/movies/get-popular-movies)
 * The movies retrieved are 1-page long and listed accordingly in the components. 
+* You can list the movies in the "/popular-movies" path and type in the search bar and list the ones you are looking for. 
 
 ## Technical Details
 * The app is created with Ember JS and its offsprings. The installation and other necessary details to run the project is outlined below. 
