@@ -1,0 +1,29 @@
+<Header>
+  <h2>{{@movie.title}}</h2>
+  <p>Nice find! This looks like a movie to watch.</p>
+</Header>
+
+<article class="rental detailed">
+  <Movie::Image
+    src="https://image.tmdb.org/t/p/w500{{@movie.backdrop_path}}"
+    alt="A picture of {{@model.title}}"
+/>
+
+  <div class="details">
+    <h3>About {{@movie.title}}</h3>
+
+    <div class="detail owner">
+      <span>Release Date:</span> {{@movie.release_date}}
+    </div>
+    <div class="detail type">
+      <span>Original Title:</span> {{@movie.original_title}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Popularity:</span> {{@movie.popularity}}
+    </div>
+    <div class="detail description">
+    <span>Details</span>
+      <p>{{@movie.overview}}</p>
+    </div>
+  </div>
+</article>

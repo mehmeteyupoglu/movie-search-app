@@ -3,7 +3,12 @@
     <p>We hope you find exactly the movie you are looking for.</p>
     <LinkTo @route="popular-movies" class="button">Popular Movies</LinkTo>
   </Header>
+ 
 <div class="rentals">
+   <label>
+    <span>Which movie are you looking for?</span>
+    <input class="light">
+  </label>
   <ul class="results">
     {{#each @model.results as |movie|}}
       <li><Movie @movie={{movie}} /></li>
