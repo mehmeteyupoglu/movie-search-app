@@ -1,7 +1,14 @@
-# movie-search-app
+# Movie Search App
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This README contains the details of the movie search app and its core features. 
+
+## About
+
+* The Movie Search App retrieves data from (https://developers.themoviedb.org/3/movies/get-popular-movies)
+* The movies retrieved are 1-page long and listed accordingly in the components. 
+
+## Technical Details
+* The app is created with Ember JS and its offsprings. The installation and other necessary details to run the project is outlined below. 
 
 ## Prerequisites
 
@@ -14,7 +21,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/mehmeteyupoglu/movie-search-app` this repository
 * `cd movie-search-app`
 * `npm install`
 
@@ -33,25 +40,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember test`
 * `ember test --server`
 
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
 ### Building
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
